@@ -6,7 +6,12 @@ class brewcask {
     creates => "${homebrew::config::installdir}/Library/Taps/phinze-cask"
   }
 
+  exec { 'homebrew-cask':
+    command => 'brew cask'
+  }
+
   package { 'brew-cask':
-    require => Exec['tap-homebrew-cask']
+    require => Exec['tap-homebrew-cask'],
+    require => Exec['homebrew-cask']
   }
 }
