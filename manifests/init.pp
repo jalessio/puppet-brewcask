@@ -11,6 +11,6 @@ class brewcask {
   }
 
   package { 'brew-cask':
-    require => Exec['tap-homebrew-cask'], Exec['homebrew-cask']
+    require => Exec['tap-homebrew-cask', 'homebrew-cask']
   }
 }
